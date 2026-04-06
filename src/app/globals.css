@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand Colors - Industrial Precision Theme */
+  --primary: #0891B2;
+  --primary-light: #22D3EE;
+  --primary-dark: #0E7490;
+  --primary-bg: #ECFEFF;
+
+  --cta: #22C55E;
+  --cta-hover: #16A34A;
+  --cta-text: #0F172A;
+
+  --text-default: #0F172A;
+  --text-muted: #475569;
+  --text-inverse: #FFFFFF;
+
+  --surface-white: #FFFFFF;
+  --surface-light: #F8FAFC;
+  --surface-border: #CBD5E1;
+  --surface-dark: #0F172A;
+
+  /* Industrial Precision Accents */
+  --accent-blueprint: #B91C1C; /* Signal Red for highlights */
+  --grid-line: rgba(8, 145, 178, 0.1);
+  --noise-opacity: 0.03;
+
+  /* Base */
+  --background: #FDFDFD;
+  --foreground: #0F172A;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-bg: var(--primary-bg);
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-cta-text: var(--cta-text);
+  --color-text-default: var(--text-default);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+  --color-surface-white: var(--surface-white);
+  --color-surface-light: var(--surface-light);
+  --color-surface-border: var(--surface-border);
+  --color-surface-dark: var(--surface-dark);
+  --color-accent-blueprint: var(--accent-blueprint);
+  --font-heading: var(--font-poppins);
+  --font-body: var(--font-open-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+/* Industrial Precision Texture & Layout */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-open-sans), 'Open Sans', Arial, sans-serif;
+  position: relative;
+}
+
+/* Blueprint Grid Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Noise Texture Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  color: var(--text-default);
+  letter-spacing: -0.02em;
+}
+
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--primary-bg);
+  color: var(--primary-dark);
+}
