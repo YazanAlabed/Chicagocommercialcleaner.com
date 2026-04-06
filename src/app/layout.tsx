@@ -1,19 +1,26 @@
 import type { Metadata } from 'next';
-import { Poppins, Open_Sans } from 'next/font/google';
+import { Archivo_Black, IBM_Plex_Mono, Public_Sans } from 'next/font/google';
 import './globals.css';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
-const poppins = Poppins({
-  variable: '--font-poppins',
+const archivoBlack = Archivo_Black({
+  variable: '--font-display',
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: '--font-heading',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
-const openSans = Open_Sans({
-  variable: '--font-open-sans',
+const publicSans = Public_Sans({
+  variable: '--font-body',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
@@ -76,14 +83,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${openSans.variable} h-full antialiased`}
+      className={`${archivoBlack.variable} ${ibmPlexMono.variable} ${publicSans.variable} h-full antialiased`}
     >
       <head>
         <LocalBusinessSchema />
       </head>
-      <body className="min-h-full flex flex-col bg-white text-[#164E63]">
+      <body className="min-h-full flex flex-col bg-bg-base text-fg-primary">
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow relative z-10">{children}</main>
         <Footer />
       </body>
     </html>

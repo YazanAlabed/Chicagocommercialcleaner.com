@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   type?: 'button' | 'submit' | 'reset';
@@ -20,25 +20,27 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
+    'inline-flex items-center justify-center font-heading font-semibold uppercase tracking-wider relative overflow-hidden transition-all duration-300 cursor-pointer';
 
   const variantStyles = {
     primary:
-      'bg-[#0891B2] text-white hover:bg-[#0E7490] focus:ring-[#0891B2] shadow-sm hover:shadow-md',
+      'bg-accent-primary text-bg-base hover:bg-fg-primary hover:shadow-[0_0_30px_rgba(226,255,0,0.4)] active:scale-95',
     secondary:
-      'bg-[#22C55E] text-[#0F172A] hover:bg-[#16A34A] focus:ring-[#22C55E] shadow-sm hover:shadow-md',
+      'bg-bg-surface text-fg-primary border-2 border-border hover:border-accent-primary hover:text-accent-primary',
     ghost:
-      'bg-transparent text-[#0891B2] hover:bg-[#ECFEFF] focus:ring-[#0891B2]',
+      'bg-transparent text-fg-secondary hover:text-accent-primary hover:bg-bg-surface',
+    outline:
+      'bg-transparent border-2 border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base',
   };
 
   const sizeStyles = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2 text-sm',
-    lg: 'px-6 py-3 text-base',
+    sm: 'px-4 py-2 text-xs',
+    md: 'px-6 py-3 text-sm',
+    lg: 'px-8 py-4 text-sm',
   };
 
   const disabledStyles = disabled
-    ? 'opacity-50 cursor-not-allowed pointer-events-none'
+    ? 'opacity-40 cursor-not-allowed pointer-events-none'
     : '';
 
   return (
@@ -54,7 +56,7 @@ export default function Button({
         ${className}
       `}
     >
-      {children}
+      <span className="relative z-10">{children}</span>
     </button>
   );
 }
