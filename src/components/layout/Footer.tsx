@@ -1,83 +1,67 @@
 import Link from 'next/link';
-import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { SERVICES, SERVICE_AREAS, BUSINESS } from '@/lib/constants';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-bg-base mt-auto">
-      {/* Grid overlay */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="h-full w-full" style={{
-          backgroundImage: `
-            linear-gradient(rgba(226, 255, 0, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(226, 255, 0, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
-
-      {/* Accent line */}
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-accent-primary/50 to-transparent" />
-
-      <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+    <footer className="bg-fg-primary mt-auto">
+      <div className="container py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             {/* Logo */}
-            <div className="flex items-center gap-4 mb-6">
-              <div className="relative w-12 h-12">
-                <div className="absolute inset-0 border-2 border-accent-primary transform rotate-45" />
-                <div className="absolute inset-2 bg-accent-primary transform rotate-45" />
-                <span className="absolute inset-0 flex items-center justify-center font-display text-bg-base text-lg font-bold">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-12 h-12 rounded-full bg-accent-terracotta flex items-center justify-center">
+                <span className="font-display text-white text-xl font-semibold">
                   CC
                 </span>
               </div>
               <div>
-                <span className="font-heading text-xs uppercase tracking-[0.2em] text-fg-muted block">
+                <span className="font-heading text-xs uppercase tracking-wider text-fg-muted block">
                   Commercial Cleaning
                 </span>
-                <span className="font-display text-fg-primary text-xl tracking-tight">
-                  CHICAGO
+                <span className="font-display text-bg-cream text-lg">
+                  Chicago
                 </span>
               </div>
             </div>
 
-            <p className="font-body text-fg-secondary text-sm leading-relaxed mb-8 max-w-sm">
-              Industrial-grade cleaning precision. Professional commercial cleaning
-              services across Chicagoland. Licensed, bonded, insured.
+            <p className="text-fg-muted text-sm leading-relaxed mb-8 max-w-sm">
+              Premium commercial cleaning services across Chicagoland.
+              Licensed, bonded, insured. We treat every space with care.
             </p>
 
             {/* Contact */}
             <div className="space-y-3">
               <a
                 href={`tel:${BUSINESS.phone}`}
-                className="flex items-center gap-3 text-fg-secondary hover:text-accent-primary transition-colors group"
+                className="flex items-center gap-3 text-fg-muted hover:text-accent-terracotta-light transition-colors group"
               >
-                <div className="w-8 h-8 border border-border flex items-center justify-center group-hover:border-accent-primary transition-colors">
-                  <Phone className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-full border border-fg-muted/30 flex items-center justify-center group-hover:border-accent-terracotta transition-colors">
+                  <Phone className="w-3.5 h-3.5" />
                 </div>
-                <span className="font-heading text-xs uppercase tracking-wider">
+                <span className="font-heading text-sm">
                   {BUSINESS.phone}
                 </span>
               </a>
               <a
                 href={`mailto:${BUSINESS.email}`}
-                className="flex items-center gap-3 text-fg-secondary hover:text-accent-primary transition-colors group"
+                className="flex items-center gap-3 text-fg-muted hover:text-accent-terracotta-light transition-colors group"
               >
-                <div className="w-8 h-8 border border-border flex items-center justify-center group-hover:border-accent-primary transition-colors">
-                  <Mail className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-full border border-fg-muted/30 flex items-center justify-center group-hover:border-accent-terracotta transition-colors">
+                  <Mail className="w-3.5 h-3.5" />
                 </div>
-                <span className="font-heading text-xs uppercase tracking-wider">
+                <span className="font-heading text-sm">
                   {BUSINESS.email}
                 </span>
               </a>
-              <div className="flex items-center gap-3 text-fg-secondary">
-                <div className="w-8 h-8 border border-border flex items-center justify-center">
-                  <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-3 text-fg-muted">
+                <div className="w-8 h-8 rounded-full border border-fg-muted/30 flex items-center justify-center">
+                  <MapPin className="w-3.5 h-3.5" />
                 </div>
-                <span className="font-heading text-xs uppercase tracking-wider">
+                <span className="font-heading text-sm">
                   {BUSINESS.address.city}, {BUSINESS.address.state}
                 </span>
               </div>
@@ -86,19 +70,16 @@ export default function Footer() {
 
           {/* Services Column */}
           <div>
-            <h4 className="font-heading text-xs uppercase tracking-[0.2em] text-accent-primary mb-6">
+            <h4 className="font-display text-bg-cream mb-5">
               Services
             </h4>
-            <ul className="space-y-3">
-              {SERVICES.slice(0, 6).map((service, idx) => (
+            <ul className="space-y-2.5">
+              {SERVICES.slice(0, 6).map((service) => (
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="font-body text-fg-secondary hover:text-fg-primary text-sm transition-colors group flex items-center gap-2"
+                    className="text-fg-muted hover:text-bg-cream text-sm transition-colors"
                   >
-                    <span className="text-fg-muted group-hover:text-accent-primary transition-colors">
-                      0{idx + 1}
-                    </span>
                     {service.name}
                   </Link>
                 </li>
@@ -108,19 +89,16 @@ export default function Footer() {
 
           {/* Locations Column */}
           <div>
-            <h4 className="font-heading text-xs uppercase tracking-[0.2em] text-accent-primary mb-6">
+            <h4 className="font-display text-bg-cream mb-5">
               Locations
             </h4>
-            <ul className="space-y-3">
-              {SERVICE_AREAS.chicagoNeighborhoods.slice(0, 5).map((area, idx) => (
+            <ul className="space-y-2.5">
+              {SERVICE_AREAS.chicagoNeighborhoods.slice(0, 5).map((area) => (
                 <li key={area}>
                   <Link
                     href={`/locations/${area.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="font-body text-fg-secondary hover:text-fg-primary text-sm transition-colors group flex items-center gap-2"
+                    className="text-fg-muted hover:text-bg-cream text-sm transition-colors"
                   >
-                    <span className="text-fg-muted group-hover:text-accent-primary transition-colors">
-                      0{idx + 1}
-                    </span>
                     {area}
                   </Link>
                 </li>
@@ -130,10 +108,10 @@ export default function Footer() {
 
           {/* Company Column */}
           <div>
-            <h4 className="font-heading text-xs uppercase tracking-[0.2em] text-accent-primary mb-6">
+            <h4 className="font-display text-bg-cream mb-5">
               Company
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {[
                 { href: '/about', label: 'About' },
                 { href: '/reviews', label: 'Reviews' },
@@ -143,7 +121,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-body text-fg-secondary hover:text-fg-primary text-sm transition-colors"
+                    className="text-fg-muted hover:text-bg-cream text-sm transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -154,29 +132,29 @@ export default function Footer() {
             {/* CTA */}
             <Link
               href="/get-a-quote"
-              className="mt-8 inline-flex items-center gap-2 bg-accent-primary text-bg-base px-6 py-3 font-heading text-xs uppercase tracking-wider hover:bg-fg-primary transition-colors"
+              className="mt-8 inline-flex items-center gap-2 bg-accent-terracotta text-white px-5 py-2.5 rounded-full font-heading text-sm font-semibold hover:bg-accent-terracotta-light transition-colors"
             >
-              Get Quote <ArrowUpRight className="w-4 h-4" />
+              Get Quote <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border mt-16 pt-8">
+        <div className="border-t border-fg-muted/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="font-body text-fg-muted text-xs">
-              © {currentYear} Chicago Commercial Cleaner. Industrial precision cleaning.
+            <p className="text-fg-muted text-xs">
+              © {currentYear} Chicago Commercial Cleaner. All rights reserved.
             </p>
-            <div className="flex gap-8">
+            <div className="flex gap-6">
               <Link
                 href="/privacy-policy"
-                className="font-body text-fg-muted hover:text-fg-secondary text-xs transition-colors"
+                className="text-fg-muted hover:text-bg-cream text-xs transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms-of-service"
-                className="font-body text-fg-muted hover:text-fg-secondary text-xs transition-colors"
+                className="text-fg-muted hover:text-bg-cream text-xs transition-colors"
               >
                 Terms of Service
               </Link>

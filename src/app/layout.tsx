@@ -1,26 +1,19 @@
 import type { Metadata } from 'next';
-import { Archivo_Black, IBM_Plex_Mono, Public_Sans } from 'next/font/google';
+import { Playfair_Display, DM_Sans } from 'next/font/google';
 import './globals.css';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
-const archivoBlack = Archivo_Black({
+const playfair = Playfair_Display({
   variable: '--font-display',
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: '--font-heading',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
-const publicSans = Public_Sans({
-  variable: '--font-body',
+const dmSans = DM_Sans({
+  variable: '--font-heading',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
@@ -83,12 +76,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivoBlack.variable} ${ibmPlexMono.variable} ${publicSans.variable} h-full antialiased`}
+      className={`${playfair.variable} ${dmSans.variable} h-full antialiased`}
     >
       <head>
         <LocalBusinessSchema />
       </head>
-      <body className="min-h-full flex flex-col bg-bg-base text-fg-primary">
+      <body className="min-h-full flex flex-col bg-bg-cream text-fg-primary">
         <Navbar />
         <main className="flex-grow relative z-10">{children}</main>
         <Footer />

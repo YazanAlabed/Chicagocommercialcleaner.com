@@ -20,17 +20,17 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center font-heading font-semibold uppercase tracking-wider relative overflow-hidden transition-all duration-300 cursor-pointer';
+    'inline-flex items-center justify-center gap-2 font-heading font-semibold transition-all duration-300 cursor-pointer rounded-full';
 
   const variantStyles = {
     primary:
-      'bg-accent-primary text-bg-base hover:bg-fg-primary hover:shadow-[0_0_30px_rgba(226,255,0,0.4)] active:scale-95',
+      'bg-accent-terracotta text-white hover:bg-accent-terracotta-light hover:-translate-y-0.5 hover:shadow-lg',
     secondary:
-      'bg-bg-surface text-fg-primary border-2 border-border hover:border-accent-primary hover:text-accent-primary',
+      'bg-transparent border-2 border-accent-terracotta text-accent-terracotta hover:bg-accent-terracotta hover:text-white',
     ghost:
-      'bg-transparent text-fg-secondary hover:text-accent-primary hover:bg-bg-surface',
+      'bg-transparent text-fg-secondary hover:text-accent-terracotta hover:bg-accent-terracotta/5',
     outline:
-      'bg-transparent border-2 border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base',
+      'bg-transparent border border-border text-fg-secondary hover:border-accent-terracotta hover:text-accent-terracotta',
   };
 
   const sizeStyles = {
@@ -56,7 +56,7 @@ export default function Button({
         ${className}
       `}
     >
-      <span className="relative z-10">{children}</span>
+      {children}
     </button>
   );
 }
