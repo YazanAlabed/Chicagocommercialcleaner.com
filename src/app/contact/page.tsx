@@ -31,7 +31,7 @@ export default function ContactPage() {
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <a
-              href="tel:877-322-8833"
+              href="tel:630-349-2862"
               className="p-6 bg-white rounded-xl border border-[#E2E8F0] hover:border-[#0891B2] hover:shadow-lg transition-all"
             >
               <div className="w-12 h-12 bg-[#ECFEFF] rounded-lg flex items-center justify-center mb-4">
@@ -40,7 +40,7 @@ export default function ContactPage() {
               <h3 className="text-lg font-semibold text-[#164E63] mb-2">
                 Phone
               </h3>
-              <p className="text-[#64748B]">877-322-8833</p>
+              <p className="text-[#64748B]">630-349-2862</p>
             </a>
 
             <a

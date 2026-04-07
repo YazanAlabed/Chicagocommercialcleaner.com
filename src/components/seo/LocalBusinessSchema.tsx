@@ -4,7 +4,7 @@ export default function LocalBusinessSchema() {
     '@type': 'LocalBusiness',
     name: 'Chicago Commercial Cleaner',
     url: 'https://chicagocommercialcleaner.com',
-    telephone: '+1-877-322-8833',
+    telephone: '+1-630-349-2862',
     email: 'info@chicagocommercialcleaner.com',
     address: {
       '@type': 'PostalAddress',

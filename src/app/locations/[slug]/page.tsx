@@ -153,13 +153,13 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
                 <div className="space-y-4">
                   <a
-                    href="tel:877-322-8833"
+                    href="tel:630-349-2862"
                     className="flex items-center gap-3 text-[#94A3B8] hover:text-[#22D3EE] transition-colors"
                   >
                     <div className="w-10 h-10 bg-[#0891B2]/20 rounded-lg flex items-center justify-center">
                       <Phone className="w-5 h-5" />
                     </div>
-                    <span>877-322-8833</span>
+                    <span>630-349-2862</span>
                   </a>
                 </div>
 

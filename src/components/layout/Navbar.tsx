@@ -81,11 +81,11 @@ export default function Navbar() {
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
               <a
-                href="tel:877-322-8833"
+                href="tel:630-349-2862"
                 className="flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-primary transition-colors duration-200"
               >
                 <Phone className="w-3.5 h-3.5" />
-                877-322-8833
+                630-349-2862
               </a>
               <Link
                 href="/get-a-quote"
@@ -186,11 +186,11 @@ export default function Navbar() {
 
               <div className="p-5 border-t border-surface-border flex flex-col gap-3">
                 <a
-                  href="tel:877-322-8833"
+                  href="tel:630-349-2862"
                   className="flex items-center justify-center gap-2 w-full py-3 border border-surface-border rounded-xl text-sm font-medium hover:bg-slate-50 transition-colors"
                 >
                   <Phone className="w-4 h-4 text-primary" />
-                  877-322-8833
+                  630-349-2862
                 </a>
                 <Link
                   href="/get-a-quote"

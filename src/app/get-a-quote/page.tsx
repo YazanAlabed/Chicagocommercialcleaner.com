@@ -95,10 +95,10 @@ export default function GetAQuotePage() {
                   Speak directly with our team for immediate assistance.
                 </p>
                 <a
-                  href="tel:877-322-8833"
+                  href="tel:630-349-2862"
                   className="inline-flex items-center gap-2 text-[#0891B2] font-semibold hover:text-[#0E7490]"
                 >
-                  Call 877-322-8833
+                  Call 630-349-2862
                 </a>
               </div>
             </div>

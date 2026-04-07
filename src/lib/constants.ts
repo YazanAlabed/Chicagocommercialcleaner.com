@@ -5,7 +5,7 @@ export const SITE_URL = 'https://chicagocommercialcleaner.com';
 // Business Information
 export const BUSINESS = {
   name: 'Chicago Commercial Cleaner',
-  phone: '877-322-8833',
+  phone: '630-349-2862',
   email: 'info@chicagocommercialcleaner.com',
   address: {
     street: '180 N Ada, Suite 821',

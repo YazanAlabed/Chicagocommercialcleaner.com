@@ -246,14 +246,14 @@ export default function HomePage() {
                       <ArrowRight className="w-4 h-4" />
                     </motion.span>
                   </Link>
-                  <a href="tel:877-322-8833">
+                  <a href="tel:630-349-2862">
                     <motion.span
                       className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-foreground text-base font-semibold rounded-xl border border-surface-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-200 cursor-pointer"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       <Phone className="w-4 h-4 text-primary" />
-                      877-322-8833
+                      630-349-2862
                     </motion.span>
                   </a>
                 </motion.div>
@@ -577,7 +577,7 @@ export default function HomePage() {
                   <ArrowRight className="w-4 h-4" />
                 </motion.span>
               </Link>
-              <a href="tel:877-322-8833">
+              <a href="tel:630-349-2862">
                 <motion.span
                   className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white text-base font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-200 cursor-pointer"
                   whileHover={{ scale: 1.03 }}
