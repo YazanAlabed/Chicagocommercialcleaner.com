@@ -1,46 +1,51 @@
 import Link from 'next/link';
-import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Shield } from 'lucide-react';
 import { SERVICES, SERVICE_AREAS, BUSINESS } from '@/lib/constants';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-fg-primary mt-auto">
-      <div className="container py-16 lg:py-20">
+    <footer className="bg-text-primary mt-auto">
+      <div className="container py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             {/* Logo */}
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-full bg-accent-terracotta flex items-center justify-center">
-                <span className="font-display text-white text-xl font-semibold">
-                  CC
-                </span>
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <Shield className="w-5 h-5 text-white" />
               </div>
               <div>
-                <span className="font-heading text-xs uppercase tracking-wider text-fg-muted block">
-                  Commercial Cleaning
+                <span className="font-heading text-sm font-semibold text-bg-white block -mb-0.5">
+                  Chicago Commercial
                 </span>
-                <span className="font-display text-bg-cream text-lg">
-                  Chicago
+                <span className="font-heading text-xs text-text-muted">
+                  Professional Cleaning
                 </span>
               </div>
             </div>
 
-            <p className="text-fg-muted text-sm leading-relaxed mb-8 max-w-sm">
-              Premium commercial cleaning services across Chicagoland.
-              Licensed, bonded, insured. We treat every space with care.
+            <p className="text-text-muted text-sm leading-relaxed mb-6 max-w-sm">
+              Professional commercial cleaning services across Chicagoland.
+              Licensed, bonded, insured. Your trusted partner for clean spaces.
             </p>
+
+            {/* Trust Badges */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              <span className="badge">Licensed</span>
+              <span className="badge badge-success">Insured</span>
+              <span className="badge">Bonded</span>
+            </div>
 
             {/* Contact */}
             <div className="space-y-3">
               <a
                 href={`tel:${BUSINESS.phone}`}
-                className="flex items-center gap-3 text-fg-muted hover:text-accent-terracotta-light transition-colors group"
+                className="flex items-center gap-3 text-text-muted hover:text-primary-light transition-colors cursor-pointer group"
               >
-                <div className="w-8 h-8 rounded-full border border-fg-muted/30 flex items-center justify-center group-hover:border-accent-terracotta transition-colors">
-                  <Phone className="w-3.5 h-3.5" />
+                <div className="w-8 h-8 rounded-lg bg-bg-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <Phone className="w-4 h-4" />
                 </div>
                 <span className="font-heading text-sm">
                   {BUSINESS.phone}
@@ -48,18 +53,18 @@ export default function Footer() {
               </a>
               <a
                 href={`mailto:${BUSINESS.email}`}
-                className="flex items-center gap-3 text-fg-muted hover:text-accent-terracotta-light transition-colors group"
+                className="flex items-center gap-3 text-text-muted hover:text-primary-light transition-colors cursor-pointer group"
               >
-                <div className="w-8 h-8 rounded-full border border-fg-muted/30 flex items-center justify-center group-hover:border-accent-terracotta transition-colors">
-                  <Mail className="w-3.5 h-3.5" />
+                <div className="w-8 h-8 rounded-lg bg-bg-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <Mail className="w-4 h-4" />
                 </div>
                 <span className="font-heading text-sm">
                   {BUSINESS.email}
                 </span>
               </a>
-              <div className="flex items-center gap-3 text-fg-muted">
-                <div className="w-8 h-8 rounded-full border border-fg-muted/30 flex items-center justify-center">
-                  <MapPin className="w-3.5 h-3.5" />
+              <div className="flex items-center gap-3 text-text-muted">
+                <div className="w-8 h-8 rounded-lg bg-bg-white/10 flex items-center justify-center">
+                  <MapPin className="w-4 h-4" />
                 </div>
                 <span className="font-heading text-sm">
                   {BUSINESS.address.city}, {BUSINESS.address.state}
@@ -70,7 +75,7 @@ export default function Footer() {
 
           {/* Services Column */}
           <div>
-            <h4 className="font-display text-bg-cream mb-5">
+            <h4 className="font-heading text-sm font-semibold text-bg-white mb-4 uppercase tracking-wide">
               Services
             </h4>
             <ul className="space-y-2.5">
@@ -78,7 +83,7 @@ export default function Footer() {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-fg-muted hover:text-bg-cream text-sm transition-colors"
+                    className="text-text-muted hover:text-bg-white text-sm transition-colors cursor-pointer"
                   >
                     {service.name}
                   </Link>
@@ -89,7 +94,7 @@ export default function Footer() {
 
           {/* Locations Column */}
           <div>
-            <h4 className="font-display text-bg-cream mb-5">
+            <h4 className="font-heading text-sm font-semibold text-bg-white mb-4 uppercase tracking-wide">
               Locations
             </h4>
             <ul className="space-y-2.5">
@@ -97,7 +102,7 @@ export default function Footer() {
                 <li key={area}>
                   <Link
                     href={`/locations/${area.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="text-fg-muted hover:text-bg-cream text-sm transition-colors"
+                    className="text-text-muted hover:text-bg-white text-sm transition-colors cursor-pointer"
                   >
                     {area}
                   </Link>
@@ -108,53 +113,46 @@ export default function Footer() {
 
           {/* Company Column */}
           <div>
-            <h4 className="font-display text-bg-cream mb-5">
+            <h4 className="font-heading text-sm font-semibold text-bg-white mb-4 uppercase tracking-wide">
               Company
             </h4>
             <ul className="space-y-2.5">
               {[
-                { href: '/about', label: 'About' },
+                { href: '/about', label: 'About Us' },
                 { href: '/reviews', label: 'Reviews' },
                 { href: '/blog', label: 'Blog' },
                 { href: '/contact', label: 'Contact' },
+                { href: '/get-a-quote', label: 'Get a Quote' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-fg-muted hover:text-bg-cream text-sm transition-colors"
+                    className="text-text-muted hover:text-bg-white text-sm transition-colors cursor-pointer"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-
-            {/* CTA */}
-            <Link
-              href="/get-a-quote"
-              className="mt-8 inline-flex items-center gap-2 bg-accent-terracotta text-white px-5 py-2.5 rounded-full font-heading text-sm font-semibold hover:bg-accent-terracotta-light transition-colors"
-            >
-              Get Quote <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-fg-muted/20 mt-12 pt-8">
+        <div className="border-t border-bg-white/10 mt-10 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-fg-muted text-xs">
+            <p className="text-text-muted text-xs">
               © {currentYear} Chicago Commercial Cleaner. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link
                 href="/privacy-policy"
-                className="text-fg-muted hover:text-bg-cream text-xs transition-colors"
+                className="text-text-muted hover:text-bg-white text-xs transition-colors cursor-pointer"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms-of-service"
-                className="text-fg-muted hover:text-bg-cream text-xs transition-colors"
+                className="text-text-muted hover:text-bg-white text-xs transition-colors cursor-pointer"
               >
                 Terms of Service
               </Link>

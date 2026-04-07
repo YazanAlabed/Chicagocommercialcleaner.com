@@ -1,19 +1,19 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, DM_Sans } from 'next/font/google';
+import { Poppins, Open_Sans } from 'next/font/google';
 import './globals.css';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
-const playfair = Playfair_Display({
-  variable: '--font-display',
+const poppins = Poppins({
+  variable: '--font-heading',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
-const dmSans = DM_Sans({
-  variable: '--font-heading',
+const openSans = Open_Sans({
+  variable: '--font-body',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
@@ -76,14 +76,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${poppins.variable} ${openSans.variable} h-full antialiased`}
     >
       <head>
         <LocalBusinessSchema />
       </head>
-      <body className="min-h-full flex flex-col bg-bg-cream text-fg-primary">
+      <body className="min-h-full flex flex-col bg-bg-white text-text-primary">
+        {/* Skip link for accessibility */}
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Navbar />
-        <main className="flex-grow relative z-10">{children}</main>
+        <main id="main-content" className="flex-grow relative z-10">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

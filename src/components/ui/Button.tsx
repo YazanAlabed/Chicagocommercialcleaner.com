@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
+  variant?: 'primary' | 'cta' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   type?: 'button' | 'submit' | 'reset';
@@ -20,27 +20,27 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center gap-2 font-heading font-semibold transition-all duration-300 cursor-pointer rounded-full';
+    'inline-flex items-center justify-center gap-2 font-heading font-semibold transition-all duration-200 cursor-pointer rounded-[10px]';
 
   const variantStyles = {
     primary:
-      'bg-accent-terracotta text-white hover:bg-accent-terracotta-light hover:-translate-y-0.5 hover:shadow-lg',
+      'bg-primary text-white hover:bg-primary-dark hover:-translate-y-0.5 shadow-sm hover:shadow-md',
+    cta:
+      'bg-cta text-white hover:bg-cta-hover hover:-translate-y-0.5 shadow-sm hover:shadow-md',
     secondary:
-      'bg-transparent border-2 border-accent-terracotta text-accent-terracotta hover:bg-accent-terracotta hover:text-white',
+      'bg-transparent border-2 border-primary text-primary hover:bg-primary-bg',
     ghost:
-      'bg-transparent text-fg-secondary hover:text-accent-terracotta hover:bg-accent-terracotta/5',
-    outline:
-      'bg-transparent border border-border text-fg-secondary hover:border-accent-terracotta hover:text-accent-terracotta',
+      'bg-transparent text-text-secondary hover:text-primary hover:bg-primary-bg',
   };
 
   const sizeStyles = {
-    sm: 'px-4 py-2 text-xs',
-    md: 'px-6 py-3 text-sm',
-    lg: 'px-8 py-4 text-sm',
+    sm: 'px-3 py-2 text-xs',
+    md: 'px-5 py-2.5 text-sm',
+    lg: 'px-6 py-3 text-sm',
   };
 
   const disabledStyles = disabled
-    ? 'opacity-40 cursor-not-allowed pointer-events-none'
+    ? 'opacity-50 cursor-not-allowed pointer-events-none'
     : '';
 
   return (
